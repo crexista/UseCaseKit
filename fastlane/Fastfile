@@ -7,7 +7,16 @@ platform :ios do
   lane :test do
     scan(scheme: "UseCaseKit",
          clean: true,
+         code_coverage: true,
          device: "iPhone 11")
+
+    slather(workspace: "UseCaseKit.xcworkspace",
+            proj: "UseCaseKit.xcodeproj",
+            scheme: "UseCaseKit",
+            output_directory: "fastlane/test_output",
+            ignore: "Pods/**",
+            cobertura_xml: true,
+            verbose: true)
   end
 
 end

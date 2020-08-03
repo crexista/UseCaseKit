@@ -70,4 +70,5 @@ jobs:
       - name: Send converage
         uses: codecov/codecov-action@v1
         with:
+          file: fastlane/test_output/cobertura.xml
           fail_ci_if_error: false
