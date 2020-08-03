@@ -3,7 +3,7 @@ import XCTest
 import Quick
 import Nimble
 
-class StateRealySpec: QuickSpec {
+class StateRelaySpec: QuickSpec {
 
     override func spec() {
         describe("StateRelay") {
@@ -19,7 +19,7 @@ class StateRealySpec: QuickSpec {
             }
 
             context("if it has empty source") {
-                it("calles subscribing method") {
+                it("doesn't calles subscribing method") {
                     let stateRelay: StateRelay<String> = StateRelay { _ in }
                     let exp = self.expectation(description: "Do not call")
                     stateRelay.sink { _ in  exp.fulfill() }
