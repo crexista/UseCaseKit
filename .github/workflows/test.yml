@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: GitHub Action for SwiftLint
         uses: norio-nomura/action-swiftlint@master
+        with:
+          args: --strict
 
   test:
     name: Test with fastlane
