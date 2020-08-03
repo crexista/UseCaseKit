@@ -1,0 +1,71 @@
+included:
+  - Sources
+  - Tests
+excluded:
+  - Pods
+analyzer_rules:
+  - unused_import
+opt_in_rules:
+  - anyobject_protocol
+  - attributes
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - contains_over_first_not_nil
+  - empty_count
+  - empty_string
+  - empty_xctest_method
+  - explicit_init
+  - extension_access_modifier
+  - fallthrough
+  - fatal_error_message
+  - first_where
+  - identical_operands
+  - joined_default_parameter
+  - last_where
+  - let_var_whitespace
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - nimble_operator
+  - operator_usage_whitespace
+  - overridden_super_call
+  - override_in_extension
+  - private_action
+  - private_outlet
+  - prohibited_super_call
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+  - redundant_nil_coalescing
+  - single_test_class
+  - sorted_first_last
+  - static_operator
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - untyped_error_in_catch
+  - vertical_parameter_alignment_on_call
+  - yoda_condition
+disabled_rules:
+  - nesting
+  - function_parameter_count
+#  - cyclomatic_complexity
+identifier_name:
+  excluded:
+    - id
+    - i
+    - ok
+    - x
+    - y
+    - _domain
+    - _code
+line_length: 300
+type_body_length:
+  - 300
+  - 400
+file_length:
+  warning: 500
+  error: 1000
+function_body_length:
+  warning: 100
+  error: 200
+

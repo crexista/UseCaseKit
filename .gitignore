@@ -1,0 +1,12 @@
+.DS_Store
+/.build
+/Packages
+xcuserdata/
+*.resolved
+Carthage/*
+vendor/*
+*/*~
+*.*~
+fastlane/report.xml
+fastlane/test_output/*
+Pods/*
