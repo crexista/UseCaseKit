@@ -45,17 +45,6 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: Carthage
-          key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-carthage-
-
-      - name: Carthage update
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: carthage bootstrap --platform iOS --cache-builds
-
-      - uses: actions/cache@v2
-        with:
           path: Pods
           key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
           restore-keys: |

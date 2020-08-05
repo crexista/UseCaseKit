@@ -5,8 +5,10 @@ inhibit_all_warnings!
 
 source 'https://cdn.cocoapods.org/'
 
-abstract_target 'app' do
-  target 'UseCaseKit' do
-    pod 'SwiftLint', '0.33.0'
+target 'UseCaseKit' do
+  pod 'SwiftLint', '0.33.0'
+  target 'UseCaseKitTests' do
+    pod 'Quick'
+    pod 'Nimble'
   end
 end
