@@ -8,10 +8,26 @@ import Foundation
 public class StateRelay<State: Equatable> {
 
     public typealias Subscriber<T> = (T) -> Void
+
+    private var observers: [Subscriber<State>] = []
     private var source: (@escaping Subscriber<State>) -> Void
 
-    init(handler: @escaping (@escaping Subscriber<State>) -> Void) {
+    let queue: DispatchQueue
+
+    init(on queue: DispatchQueue, handler: @escaping (@escaping Subscriber<State>) -> Void) {
+        self.queue = queue
         source = handler
+    }
+
+    func publish(_ state: State) {
+        self.observers.forEach { $0(state) }
+    }
+
+    func subscribe(receiver: @escaping Subscriber<State>) {
+        observers.append(receiver)
+        source { state in
+            self.observers.forEach { $0(state) }
+        }
     }
 
     /// This method register `receiver` that is called
@@ -20,7 +36,9 @@ public class StateRelay<State: Equatable> {
     /// - Parameter receiver: This closure will be called when observing target's state
     ///                       is updating.
     public func sink(receiver: @escaping Subscriber<State>) {
-        source(receiver)
+        queue.async {
+            self.subscribe(receiver: receiver)
+        }
     }
 
 }

@@ -11,6 +11,7 @@ class StateRelayMapSpec: QuickSpec {
 
     override func spec() {
         describe("StateRelay") {
+            let queue: DispatchQueue = .init(label: "st.crexi.UseCaseKit.StateRelayMapSpec")
             let convertStr = "Test"
             let mapFunc: (Int) -> String = { "\(convertStr) - \($0)" }
 
@@ -18,7 +19,7 @@ class StateRelayMapSpec: QuickSpec {
                 let initialNum: Int = 1
 
                 it("calles subscribing method") {
-                    let stateRelay = StateRelay(handler: { subscriber in subscriber(initialNum) })
+                    let stateRelay = StateRelay(on: queue) { subscriber in subscriber(initialNum) }
                     waitUntil { end in
                         stateRelay
                             .map(mapFunc)
@@ -27,7 +28,7 @@ class StateRelayMapSpec: QuickSpec {
                 }
 
                 it("convert Int state to String") {
-                    let stateRelay = StateRelay(handler: { subscriber in subscriber(initialNum) })
+                    let stateRelay = StateRelay(on: queue) { subscriber in subscriber(initialNum) }
                     waitUntil { end in
                         stateRelay
                             .map(mapFunc)
@@ -38,7 +39,7 @@ class StateRelayMapSpec: QuickSpec {
 
             context("if it has empty source") {
                 it("calles subscribing method") {
-                    let stateRelay: StateRelay<Int> = StateRelay { _ in }
+                    let stateRelay: StateRelay<Int> = StateRelay(on: queue) { _ in }
                     let exp = self.expectation(description: "Do not call")
                     stateRelay.map(mapFunc).sink { _ in  exp.fulfill() }
                     expect(XCTWaiter.wait(for: [exp], timeout: 1.0)) == .timedOut
