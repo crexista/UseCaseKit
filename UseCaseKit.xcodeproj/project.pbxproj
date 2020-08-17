@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		UseCaseKit::UseCaseKitPackageTests::ProductTarget /* UseCaseKitPackageTests */ = {
+		"UseCaseKit::UseCaseKitPackageTests::ProductTarget" /* UseCaseKitPackageTests */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = OBJ_31 /* Build configuration list for PBXAggregateTarget "UseCaseKitPackageTests" */;
 			buildPhases = (
@@ -30,9 +30,14 @@
 		DB91EAE224D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE124D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift */; };
 		DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE324D90E0900ED5A3A /* Store.swift */; };
 		DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE524D9213200ED5A3A /* StoreSpec.swift */; };
+		DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */; };
+		DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */; };
+		DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */; };
+		DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */; };
+		DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_40 /* StateRelaySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* StateRelaySpec.swift */; };
-		OBJ_43 /* UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = UseCaseKit::UseCaseKit::Product /* UseCaseKit.framework */; };
+		OBJ_43 /* UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,12 +87,17 @@
 		DB91EAE124D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelayRemoveDuplicates.swift; sourceTree = "<group>"; };
 		DB91EAE324D90E0900ED5A3A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB91EAE524D9213200ED5A3A /* StoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSpec.swift; sourceTree = "<group>"; };
+		DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherSpec.swift; sourceTree = "<group>"; };
+		DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Store.swift"; sourceTree = "<group>"; };
+		DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseSpec.swift; sourceTree = "<group>"; };
 		F4F5D95C7858B070556A2907 /* Pods_UseCaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8582C8FD91F3937CC189A7D /* Pods-UseCaseKit-UseCaseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; path = "Target Support Files/Pods-UseCaseKit-UseCaseKitTests/Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		OBJ_12 /* StateRelaySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelaySpec.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		UseCaseKit::UseCaseKit::Product /* UseCaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		UseCaseKit::UseCaseKitTests::Product /* UseCaseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = UseCaseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"UseCaseKit::UseCaseKitTests::Product" /* UseCaseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = UseCaseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +170,8 @@
 				DB91EAD924D82B7600ED5A3A /* StateRelayFilterSpec.swift */,
 				DB91EAE124D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift */,
 				DB91EAE524D9213200ED5A3A /* StoreSpec.swift */,
+				DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */,
+				DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */,
 			);
 			name = UseCaseKitTests;
 			path = Tests/UseCaseKitTests;
@@ -168,8 +180,8 @@
 		OBJ_14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				UseCaseKit::UseCaseKitTests::Product /* UseCaseKitTests.xctest */,
-				UseCaseKit::UseCaseKit::Product /* UseCaseKit.framework */,
+				"UseCaseKit::UseCaseKitTests::Product" /* UseCaseKitTests.xctest */,
+				"UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -200,6 +212,9 @@
 				DB91EAD224D7D66300ED5A3A /* StateRelay.swift */,
 				DB91EAD424D80AB100ED5A3A /* StateRelay+Extension.swift */,
 				DB91EAE324D90E0900ED5A3A /* Store.swift */,
+				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
+				DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */,
+				DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */,
 			);
 			name = UseCaseKit;
 			path = Sources/UseCaseKit;
@@ -208,7 +223,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		UseCaseKit::SwiftPMPackageDescription /* UseCaseKitPackageDescription */ = {
+		"UseCaseKit::SwiftPMPackageDescription" /* UseCaseKitPackageDescription */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_25 /* Build configuration list for PBXNativeTarget "UseCaseKitPackageDescription" */;
 			buildPhases = (
@@ -223,7 +238,7 @@
 			productName = UseCaseKitPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
-		UseCaseKit::UseCaseKit /* UseCaseKit */ = {
+		"UseCaseKit::UseCaseKit" /* UseCaseKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_18 /* Build configuration list for PBXNativeTarget "UseCaseKit" */;
 			buildPhases = (
@@ -238,10 +253,10 @@
 			);
 			name = UseCaseKit;
 			productName = UseCaseKit;
-			productReference = UseCaseKit::UseCaseKit::Product /* UseCaseKit.framework */;
+			productReference = "UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		UseCaseKit::UseCaseKitTests /* UseCaseKitTests */ = {
+		"UseCaseKit::UseCaseKitTests" /* UseCaseKitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_36 /* Build configuration list for PBXNativeTarget "UseCaseKitTests" */;
 			buildPhases = (
@@ -258,7 +273,7 @@
 			);
 			name = UseCaseKitTests;
 			productName = UseCaseKitTests;
-			productReference = UseCaseKit::UseCaseKitTests::Product /* UseCaseKitTests.xctest */;
+			productReference = "UseCaseKit::UseCaseKitTests::Product" /* UseCaseKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -282,10 +297,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				UseCaseKit::UseCaseKit /* UseCaseKit */,
-				UseCaseKit::SwiftPMPackageDescription /* UseCaseKitPackageDescription */,
-				UseCaseKit::UseCaseKitPackageTests::ProductTarget /* UseCaseKitPackageTests */,
-				UseCaseKit::UseCaseKitTests /* UseCaseKitTests */,
+				"UseCaseKit::UseCaseKit" /* UseCaseKit */,
+				"UseCaseKit::SwiftPMPackageDescription" /* UseCaseKitPackageDescription */,
+				"UseCaseKit::UseCaseKitPackageTests::ProductTarget" /* UseCaseKitPackageTests */,
+				"UseCaseKit::UseCaseKitTests" /* UseCaseKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -380,8 +395,11 @@
 			buildActionMask = 0;
 			files = (
 				DB91EAD324D7D66300ED5A3A /* StateRelay.swift in Sources */,
+				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
 				DB91EAD524D80AB100ED5A3A /* StateRelay+Extension.swift in Sources */,
+				DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */,
 				DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */,
+				DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +417,9 @@
 			files = (
 				DB91EAE224D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift in Sources */,
 				OBJ_40 /* StateRelaySpec.swift in Sources */,
+				DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */,
 				DB91EADA24D82B7600ED5A3A /* StateRelayFilterSpec.swift in Sources */,
+				DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
 				DB91EAD824D8113B00ED5A3A /* StateRelayMapSpec.swift in Sources */,
 			);
@@ -410,12 +430,12 @@
 /* Begin PBXTargetDependency section */
 		OBJ_34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = UseCaseKit::UseCaseKitTests /* UseCaseKitTests */;
+			target = "UseCaseKit::UseCaseKitTests" /* UseCaseKitTests */;
 			targetProxy = DB91EAB524D6D71100ED5A3A /* PBXContainerItemProxy */;
 		};
 		OBJ_44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = UseCaseKit::UseCaseKit /* UseCaseKit */;
+			target = "UseCaseKit::UseCaseKit" /* UseCaseKit */;
 			targetProxy = DB91EAB424D6D71000ED5A3A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
