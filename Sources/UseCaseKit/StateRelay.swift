@@ -41,4 +41,10 @@ public class StateRelay<State: Equatable> {
         }
     }
 
+    public func sink(on sinkQueue: DispatchQueue, receiver: @escaping Subscriber<State>) {
+        let newReceiver: (State) -> Void = { state in
+            sinkQueue.async { receiver(state) }
+        }
+        sink(receiver: newReceiver)
+    }
 }
