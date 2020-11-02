@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		253910E651415772E8475E84 /* Pods_UseCaseKit_UseCaseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271BF873D2D8230AEE3B7E32 /* Pods_UseCaseKit_UseCaseKitTests.framework */; };
-		77591E5CD6895B78A4053FB0 /* Pods_UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F5D95C7858B070556A2907 /* Pods_UseCaseKit.framework */; };
 		DB91EAD324D7D66300ED5A3A /* StateRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD224D7D66300ED5A3A /* StateRelay.swift */; };
 		DB91EAD524D80AB100ED5A3A /* StateRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD424D80AB100ED5A3A /* StateRelay+Extension.swift */; };
 		DB91EAD824D8113B00ED5A3A /* StateRelayMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD624D8111D00ED5A3A /* StateRelayMapSpec.swift */; };
@@ -96,7 +95,7 @@
 		F8582C8FD91F3937CC189A7D /* Pods-UseCaseKit-UseCaseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; path = "Target Support Files/Pods-UseCaseKit-UseCaseKitTests/Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		OBJ_12 /* StateRelaySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelaySpec.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		"UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"UseCaseKit::UseCaseKitTests::Product" /* UseCaseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = UseCaseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				77591E5CD6895B78A4053FB0 /* Pods_UseCaseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
