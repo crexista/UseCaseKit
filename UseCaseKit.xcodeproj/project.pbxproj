@@ -28,11 +28,6 @@
 		DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162528256CA5F700C627AC /* DefaultTerminatable.swift */; };
 		DB57762D2550495700903C1D /* StateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57762C2550495700903C1D /* StateSource.swift */; };
 		DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5776312550626E00903C1D /* StateSourceSpec.swift */; };
-		DB91EAD324D7D66300ED5A3A /* StateRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD224D7D66300ED5A3A /* StateRelay.swift */; };
-		DB91EAD524D80AB100ED5A3A /* StateRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD424D80AB100ED5A3A /* StateRelay+Extension.swift */; };
-		DB91EAD824D8113B00ED5A3A /* StateRelayMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD624D8111D00ED5A3A /* StateRelayMapSpec.swift */; };
-		DB91EADA24D82B7600ED5A3A /* StateRelayFilterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD924D82B7600ED5A3A /* StateRelayFilterSpec.swift */; };
-		DB91EAE224D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE124D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift */; };
 		DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE324D90E0900ED5A3A /* Store.swift */; };
 		DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE524D9213200ED5A3A /* StoreSpec.swift */; };
 		DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */; };
@@ -41,7 +36,6 @@
 		DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */; };
 		DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_40 /* StateRelaySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* StateRelaySpec.swift */; };
 		OBJ_43 /* UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,11 +85,6 @@
 		DB91EAB824D6DA4200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABB24D6DA6200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABC24D6DA6200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
-		DB91EAD224D7D66300ED5A3A /* StateRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelay.swift; sourceTree = "<group>"; };
-		DB91EAD424D80AB100ED5A3A /* StateRelay+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StateRelay+Extension.swift"; sourceTree = "<group>"; };
-		DB91EAD624D8111D00ED5A3A /* StateRelayMapSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelayMapSpec.swift; sourceTree = "<group>"; };
-		DB91EAD924D82B7600ED5A3A /* StateRelayFilterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelayFilterSpec.swift; sourceTree = "<group>"; };
-		DB91EAE124D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelayRemoveDuplicates.swift; sourceTree = "<group>"; };
 		DB91EAE324D90E0900ED5A3A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB91EAE524D9213200ED5A3A /* StoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSpec.swift; sourceTree = "<group>"; };
 		DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
@@ -105,7 +94,6 @@
 		DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseSpec.swift; sourceTree = "<group>"; };
 		F4F5D95C7858B070556A2907 /* Pods_UseCaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8582C8FD91F3937CC189A7D /* Pods-UseCaseKit-UseCaseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; path = "Target Support Files/Pods-UseCaseKit-UseCaseKitTests/Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		OBJ_12 /* StateRelaySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRelaySpec.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"UseCaseKit::UseCaseKitTests::Product" /* UseCaseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = UseCaseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,10 +163,6 @@
 		OBJ_11 /* UseCaseKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_12 /* StateRelaySpec.swift */,
-				DB91EAD624D8111D00ED5A3A /* StateRelayMapSpec.swift */,
-				DB91EAD924D82B7600ED5A3A /* StateRelayFilterSpec.swift */,
-				DB91EAE124D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift */,
 				DB91EAE524D9213200ED5A3A /* StoreSpec.swift */,
 				DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */,
 				DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */,
@@ -222,8 +206,6 @@
 		OBJ_8 /* UseCaseKit */ = {
 			isa = PBXGroup;
 			children = (
-				DB91EAD224D7D66300ED5A3A /* StateRelay.swift */,
-				DB91EAD424D80AB100ED5A3A /* StateRelay+Extension.swift */,
 				DB91EAE324D90E0900ED5A3A /* Store.swift */,
 				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
 				DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */,
@@ -410,10 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				DB91EAD324D7D66300ED5A3A /* StateRelay.swift in Sources */,
 				DB57762D2550495700903C1D /* StateSource.swift in Sources */,
 				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
-				DB91EAD524D80AB100ED5A3A /* StateRelay+Extension.swift in Sources */,
 				DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */,
 				DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */,
 				DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */,
@@ -434,13 +414,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				DB91EAE224D8A9B500ED5A3A /* StateRelayRemoveDuplicates.swift in Sources */,
-				OBJ_40 /* StateRelaySpec.swift in Sources */,
 				DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */,
-				DB91EADA24D82B7600ED5A3A /* StateRelayFilterSpec.swift in Sources */,
 				DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
-				DB91EAD824D8113B00ED5A3A /* StateRelayMapSpec.swift in Sources */,
 				DB16251C256BF4A100C627AC /* MockState.swift in Sources */,
 				DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */,
 				DB162524256BF4F700C627AC /* MockCommand.swift in Sources */,
