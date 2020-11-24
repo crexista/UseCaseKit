@@ -22,6 +22,12 @@
 
 /* Begin PBXBuildFile section */
 		253910E651415772E8475E84 /* Pods_UseCaseKit_UseCaseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271BF873D2D8230AEE3B7E32 /* Pods_UseCaseKit_UseCaseKitTests.framework */; };
+		DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162513256BAD2A00C627AC /* Terminatable.swift */; };
+		DB16251C256BF4A100C627AC /* MockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16251B256BF4A100C627AC /* MockState.swift */; };
+		DB162524256BF4F700C627AC /* MockCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162523256BF4F700C627AC /* MockCommand.swift */; };
+		DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162528256CA5F700C627AC /* DefaultTerminatable.swift */; };
+		DB57762D2550495700903C1D /* StateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57762C2550495700903C1D /* StateSource.swift */; };
+		DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5776312550626E00903C1D /* StateSourceSpec.swift */; };
 		DB91EAD324D7D66300ED5A3A /* StateRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD224D7D66300ED5A3A /* StateRelay.swift */; };
 		DB91EAD524D80AB100ED5A3A /* StateRelay+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD424D80AB100ED5A3A /* StateRelay+Extension.swift */; };
 		DB91EAD824D8113B00ED5A3A /* StateRelayMapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAD624D8111D00ED5A3A /* StateRelayMapSpec.swift */; };
@@ -75,6 +81,12 @@
 		ABEF7A1FE50A6AEEF1E81037 /* Pods-UseCaseKit-UseCaseKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit-UseCaseKitTests.debug.xcconfig"; path = "Target Support Files/Pods-UseCaseKit-UseCaseKitTests/Pods-UseCaseKit-UseCaseKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDFEB4E5C62D2C6BC5023D30 /* Pods-UseCaseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit.debug.xcconfig"; path = "Target Support Files/Pods-UseCaseKit/Pods-UseCaseKit.debug.xcconfig"; sourceTree = "<group>"; };
 		BF6D3B6148FF6A09E5624702 /* Pods-UseCaseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit.release.xcconfig"; path = "Target Support Files/Pods-UseCaseKit/Pods-UseCaseKit.release.xcconfig"; sourceTree = "<group>"; };
+		DB162513256BAD2A00C627AC /* Terminatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminatable.swift; sourceTree = "<group>"; };
+		DB16251B256BF4A100C627AC /* MockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockState.swift; sourceTree = "<group>"; };
+		DB162523256BF4F700C627AC /* MockCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommand.swift; sourceTree = "<group>"; };
+		DB162528256CA5F700C627AC /* DefaultTerminatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatable.swift; sourceTree = "<group>"; };
+		DB57762C2550495700903C1D /* StateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSource.swift; sourceTree = "<group>"; };
+		DB5776312550626E00903C1D /* StateSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSourceSpec.swift; sourceTree = "<group>"; };
 		DB91EAB724D6DA4200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DB91EAB824D6DA4200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABB24D6DA6200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -170,6 +182,9 @@
 				DB91EAE524D9213200ED5A3A /* StoreSpec.swift */,
 				DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */,
 				DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */,
+				DB5776312550626E00903C1D /* StateSourceSpec.swift */,
+				DB16251B256BF4A100C627AC /* MockState.swift */,
+				DB162523256BF4F700C627AC /* MockCommand.swift */,
 			);
 			name = UseCaseKitTests;
 			path = Tests/UseCaseKitTests;
@@ -213,6 +228,9 @@
 				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
 				DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */,
 				DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */,
+				DB57762C2550495700903C1D /* StateSource.swift */,
+				DB162513256BAD2A00C627AC /* Terminatable.swift */,
+				DB162528256CA5F700C627AC /* DefaultTerminatable.swift */,
 			);
 			name = UseCaseKit;
 			path = Sources/UseCaseKit;
@@ -393,11 +411,14 @@
 			buildActionMask = 0;
 			files = (
 				DB91EAD324D7D66300ED5A3A /* StateRelay.swift in Sources */,
+				DB57762D2550495700903C1D /* StateSource.swift in Sources */,
 				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
 				DB91EAD524D80AB100ED5A3A /* StateRelay+Extension.swift in Sources */,
 				DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */,
+				DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */,
 				DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */,
 				DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */,
+				DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +441,9 @@
 				DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
 				DB91EAD824D8113B00ED5A3A /* StateRelayMapSpec.swift in Sources */,
+				DB16251C256BF4A100C627AC /* MockState.swift in Sources */,
+				DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */,
+				DB162524256BF4F700C627AC /* MockCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

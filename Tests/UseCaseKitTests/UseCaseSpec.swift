@@ -27,7 +27,7 @@ class UseCaseSpec: QuickSpec {
             context("if UseCase doesn't receive command") {
                 it("returns current state to subscribing closure") {
                     waitUntil { end in
-                        usecase.state.sink { expect($0) == .initial; end() }
+                        _ = usecase.sink(on: .main) { expect($0) == .initial; end() }
                     }
                 }
             }
@@ -36,7 +36,7 @@ class UseCaseSpec: QuickSpec {
                 it("returns mock1 state to subscribing closure") {
                     waitUntil { end in
                         usecase.dispatcher.dispatch(.test1)
-                        usecase.state.sink { expect($0) == .mock1; end() }
+                        _ = usecase.sink(on: .main) { expect($0) == .mock1; end() }
                     }
                 }
             }
@@ -45,23 +45,11 @@ class UseCaseSpec: QuickSpec {
                 it("returns mock2 state to subscribing closure") {
                     waitUntil { end in
                         usecase.dispatcher.dispatch(.test2)
-                        usecase.state.sink { expect($0) == .mock2; end() }
+                        _ = usecase.sink(on: .main) { expect($0) == .mock2; end() }
                     }
                 }
             }
 
         }
     }
-}
-
-enum MockState: Equatable {
-    case initial
-    case mock1
-    case mock2
-}
-
-enum MockCommand: Command {
-    typealias State = MockState
-    case test1
-    case test2
 }
