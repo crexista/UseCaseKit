@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
 # Xcode
-gem 'cocoapods', '1.7.3'
-gem 'fastlane', '2.154.0'
-gem 'slather', '2.4.9'
+gem 'cocoapods', '1.10.1'
+gem 'fastlane', '2.170.0'
+gem 'slather', '2.6.1'
