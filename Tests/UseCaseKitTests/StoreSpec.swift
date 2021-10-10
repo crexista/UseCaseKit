@@ -11,29 +11,44 @@ class StoreSpec: QuickSpec {
     override func spec() {
         let initialState = "test1"
         let currentState = "test2"
+        let nextState = "test3"
         var store = Store(state: initialState)
         describe("Store") {
 
-            context("not update") {
+            beforeEach { store = Store(state: initialState) }
 
-                beforeEach { store = Store(state: initialState) }
+            it("returns initial state via currentState property") {
+                expect(store.currentState) == initialState
+            }
 
-                it("returns initial state via currentState property") {
-                    expect(store.currentState) == initialState
-                }
-
-                it("relays initial state to receiver") {
-                    waitUntil { end in
-                        store.stateRelay.sink { expect($0) == initialState; end() }
-                    }
+            it("relays initial state to receiver") {
+                waitUntil { end in
+                    store.addSubscriber { expect($0) == initialState; end() }
                 }
             }
 
-            context("update state permanently") {
-                beforeEach {
-                    store = Store(state: initialState)
-                    store.update { $0 = currentState }
+            it("stop publish state to subscriber that is removed") {
+                let timeout = self.expectation(description: "timeout")
+                var count = 1
+
+                let key = store.addSubscriber {
+                    switch count {
+                    case 1:
+                        expect($0) == initialState
+                    case 2:
+                        expect($0) != currentState
+                        timeout.fulfill()
+                    default: break
+                    }
+                    count += 1
                 }
+                store.removeSubscriber(of: key)
+                store.update { $0 = currentState }
+                expect(XCTWaiter.wait(for: [timeout], timeout: 1.0, enforceOrder: true)) == .timedOut
+            }
+
+            context("update state permanently") {
+                beforeEach { store.update { $0 = currentState } }
 
                 it("retunes current state via currentState property") {
                     expect(store.currentState) == currentState
@@ -41,7 +56,7 @@ class StoreSpec: QuickSpec {
 
                 it("relays current state ") {
                     waitUntil { end in
-                        store.stateRelay.sink {
+                        store.addSubscriber {
                             expect($0) == currentState
                             end()
                         }
@@ -50,9 +65,6 @@ class StoreSpec: QuickSpec {
             }
 
             context("update state transiently") {
-                beforeEach {
-                    store = Store(state: initialState)
-                }
 
                 it("returns initial state via currentState property") {
                     store.update(transient: true) { $0 = currentState }
@@ -64,7 +76,7 @@ class StoreSpec: QuickSpec {
                     let second = self.expectation(description: "second")
                     let third = self.expectation(description: "third")
                     var count = 1
-                    store.stateRelay.sink {
+                    store.addSubscriber {
                         switch count {
                         case 1:
                             expect($0) == initialState
@@ -81,6 +93,10 @@ class StoreSpec: QuickSpec {
                     }
                     store.update(transient: true) { $0 = currentState }
                     expect(XCTWaiter.wait(for: [first, second, third], timeout: 1.0, enforceOrder: true)) == .completed
+                }
+
+                it("recover to initial state after changing currentState2") {
+
                 }
 
             }

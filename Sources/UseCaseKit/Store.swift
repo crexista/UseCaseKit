@@ -6,27 +6,23 @@ import Foundation
 
 public class Store<State: Equatable> {
 
-    private class Container {
-        var state: State
-
-        init(state: State) {
-            self.state = state
-        }
-    }
+    typealias SubscriberKey = Int
 
     private let queue: DispatchQueue = .init(label: "st.crexi.UseCaseKit.Store")
-    private let container: Container
-
-    let stateRelay: StateRelay<State>
+    private var state: State
+    private var subscribers: [SubscriberKey: (State) -> Void] = [:]
+    private var currentKey: SubscriberKey = 0
 
     public var currentState: State {
-        return queue.sync { container.state }
+        return queue.sync { state }
+    }
+
+    public var source: StateSource<State> {
+        return StateSource(store: self)
     }
 
     public init(state: State) {
-        let container = Container(state: state)
-        stateRelay = .init(on: queue) { $0(container.state) }
-        self.container = container
+        self.state = state
     }
 
     /// This method updates Store's state with updater closure.
@@ -36,15 +32,35 @@ public class Store<State: Equatable> {
     ///   - updater: A closure that update state. This closure is thread safe.
     public func update(transient: Bool = false, updater: @escaping (inout State) -> Void) {
         queue.async {
-            var state = self.container.state
-            updater(&state)
+            let originalState = self.state
+            var newState = self.state
+            updater(&newState)
             if transient {
-                self.stateRelay.publish(state)
-                self.stateRelay.publish(self.container.state)
+                self.state = newState
+                self.subscribers.values.forEach { $0(newState) }
+                self.state = originalState
+                self.subscribers.values.forEach { $0(originalState) }
             } else {
-                self.container.state = state
-                self.stateRelay.publish(state)
+                self.state = newState
+                self.subscribers.values.forEach { $0(newState) }
             }
+        }
+    }
+
+    @discardableResult
+    func addSubscriber(_ subscriber: @escaping (State) -> Void) -> SubscriberKey {
+        return queue.sync {
+            let key = currentKey
+            self.subscribers[key] = subscriber
+            queue.async { self.subscribers[key]?(self.state) }
+            currentKey += 1
+            return key
+        }
+    }
+
+    func removeSubscriber(of key: SubscriberKey) {
+        queue.async {
+            self.subscribers.removeValue(forKey: key)
         }
     }
 
