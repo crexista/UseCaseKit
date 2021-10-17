@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - versioins/*
   pull_request:
     paths:
       - '.swiftlint.yml'
