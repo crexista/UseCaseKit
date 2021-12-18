@@ -18,7 +18,7 @@ public extension UseCase {
         let store = Store(state: state)
         let handler = configure(store)
 
-        return UseCase<CommandType>(dispatcher: Dispatcher<CommandType> { handler($0) }, source: store.source)
+        return UseCase<CommandType>(dispatcher: Dispatcher<CommandType> { handler($0) }, store: store)
     }
 
 }
