@@ -17,10 +17,6 @@ public class Store<State: Equatable> {
         return queue.sync { state }
     }
 
-    public var source: StateSource<State> {
-        return StateSource(store: self)
-    }
-
     public init(state: State) {
         self.state = state
     }
@@ -48,13 +44,16 @@ public class Store<State: Equatable> {
     }
 
     @discardableResult
-    func addSubscriber(_ subscriber: @escaping (State) -> Void) -> SubscriberKey {
+    func addSubscriber(_ subscriber: @escaping (State) -> Void) -> Terminatable {
         return queue.sync {
             let key = currentKey
             self.subscribers[key] = subscriber
             queue.async { self.subscribers[key]?(self.state) }
             currentKey += 1
-            return key
+
+            return DefaultTerminatable { [weak self] in
+                self?.removeSubscriber(of: key)
+            }
         }
     }
 
