@@ -27,8 +27,6 @@
 		DB16251C256BF4A100C627AC /* MockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16251B256BF4A100C627AC /* MockState.swift */; };
 		DB162524256BF4F700C627AC /* MockCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162523256BF4F700C627AC /* MockCommand.swift */; };
 		DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162528256CA5F700C627AC /* DefaultTerminatable.swift */; };
-		DB57762D2550495700903C1D /* StateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57762C2550495700903C1D /* StateSource.swift */; };
-		DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5776312550626E00903C1D /* StateSourceSpec.swift */; };
 		DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE324D90E0900ED5A3A /* Store.swift */; };
 		DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE524D9213200ED5A3A /* StoreSpec.swift */; };
 		DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */; };
@@ -80,8 +78,6 @@
 		DB16251B256BF4A100C627AC /* MockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockState.swift; sourceTree = "<group>"; };
 		DB162523256BF4F700C627AC /* MockCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommand.swift; sourceTree = "<group>"; };
 		DB162528256CA5F700C627AC /* DefaultTerminatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatable.swift; sourceTree = "<group>"; };
-		DB57762C2550495700903C1D /* StateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSource.swift; sourceTree = "<group>"; };
-		DB5776312550626E00903C1D /* StateSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSourceSpec.swift; sourceTree = "<group>"; };
 		DB91EAB724D6DA4200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DB91EAB824D6DA4200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABB24D6DA6200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -168,7 +164,6 @@
 				DB91EAE524D9213200ED5A3A /* StoreSpec.swift */,
 				DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */,
 				DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */,
-				DB5776312550626E00903C1D /* StateSourceSpec.swift */,
 				DB16251B256BF4A100C627AC /* MockState.swift */,
 				DB162523256BF4F700C627AC /* MockCommand.swift */,
 			);
@@ -212,7 +207,6 @@
 				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
 				DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */,
 				DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */,
-				DB57762C2550495700903C1D /* StateSource.swift */,
 				DB162513256BAD2A00C627AC /* Terminatable.swift */,
 				DB162528256CA5F700C627AC /* DefaultTerminatable.swift */,
 			);
@@ -394,7 +388,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				DB57762D2550495700903C1D /* StateSource.swift in Sources */,
 				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
 				DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */,
 				DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */,
@@ -420,7 +413,6 @@
 				DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
 				DB16251C256BF4A100C627AC /* MockState.swift in Sources */,
-				DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */,
 				DB162524256BF4F700C627AC /* MockCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
