@@ -88,7 +88,7 @@ class UseCaseSpec: QuickSpec {
 
 extension UseCase where CommandType == MockCommand {
 
-    static func test(_ deinitWaiter: XCTestExpectation) -> UseCase {
+    static func test(_ deinitWaiter: XCTestExpectation?) -> UseCase {
         return .init(.initial) { store in
             return .onReceive {
                 switch $0 {
@@ -96,7 +96,7 @@ extension UseCase where CommandType == MockCommand {
                 case .test2: store.update { $0 = .mock2 }
                 }
             } onDeinit: {
-                deinitWaiter.fulfill()
+                deinitWaiter?.fulfill()
             }
         }
     }
