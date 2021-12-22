@@ -8,10 +8,10 @@ import UseCaseKit
 extension UseCase {
     
     static func stopWatch() -> UseCase<StopWatchCommand> {
-        return  .store(.stopped) { store in
+        return  .init(.stopped) { store in
             var timer: Timer?
             
-            return {
+            return .onReceive {
                 switch $0 {
                 case .stop:
                     timer?.invalidate()

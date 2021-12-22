@@ -22,18 +22,15 @@
 
 /* Begin PBXBuildFile section */
 		253910E651415772E8475E84 /* Pods_UseCaseKit_UseCaseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271BF873D2D8230AEE3B7E32 /* Pods_UseCaseKit_UseCaseKitTests.framework */; };
+		56EE194B1F0244BFAC27653B /* Pods_UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4F5D95C7858B070556A2907 /* Pods_UseCaseKit.framework */; };
 		DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162513256BAD2A00C627AC /* Terminatable.swift */; };
 		DB16251C256BF4A100C627AC /* MockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16251B256BF4A100C627AC /* MockState.swift */; };
 		DB162524256BF4F700C627AC /* MockCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162523256BF4F700C627AC /* MockCommand.swift */; };
 		DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162528256CA5F700C627AC /* DefaultTerminatable.swift */; };
-		DB57762D2550495700903C1D /* StateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57762C2550495700903C1D /* StateSource.swift */; };
-		DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5776312550626E00903C1D /* StateSourceSpec.swift */; };
 		DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE324D90E0900ED5A3A /* Store.swift */; };
 		DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE524D9213200ED5A3A /* StoreSpec.swift */; };
+		DBFA3BC02771E62500220808 /* DefaultTerminatableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */; };
 		DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */; };
-		DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */; };
-		DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */; };
-		DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */; };
 		DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_43 /* UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */; };
@@ -79,18 +76,14 @@
 		DB16251B256BF4A100C627AC /* MockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockState.swift; sourceTree = "<group>"; };
 		DB162523256BF4F700C627AC /* MockCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommand.swift; sourceTree = "<group>"; };
 		DB162528256CA5F700C627AC /* DefaultTerminatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatable.swift; sourceTree = "<group>"; };
-		DB57762C2550495700903C1D /* StateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSource.swift; sourceTree = "<group>"; };
-		DB5776312550626E00903C1D /* StateSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSourceSpec.swift; sourceTree = "<group>"; };
 		DB91EAB724D6DA4200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DB91EAB824D6DA4200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABB24D6DA6200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABC24D6DA6200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		DB91EAE324D90E0900ED5A3A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB91EAE524D9213200ED5A3A /* StoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSpec.swift; sourceTree = "<group>"; };
+		DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatableSpec.swift; sourceTree = "<group>"; };
 		DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
-		DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherSpec.swift; sourceTree = "<group>"; };
-		DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Store.swift"; sourceTree = "<group>"; };
 		DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseSpec.swift; sourceTree = "<group>"; };
 		F4F5D95C7858B070556A2907 /* Pods_UseCaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8582C8FD91F3937CC189A7D /* Pods-UseCaseKit-UseCaseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; path = "Target Support Files/Pods-UseCaseKit-UseCaseKitTests/Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				56EE194B1F0244BFAC27653B /* Pods_UseCaseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,9 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				DB91EAE524D9213200ED5A3A /* StoreSpec.swift */,
-				DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */,
 				DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */,
-				DB5776312550626E00903C1D /* StateSourceSpec.swift */,
+				DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */,
 				DB16251B256BF4A100C627AC /* MockState.swift */,
 				DB162523256BF4F700C627AC /* MockCommand.swift */,
 			);
@@ -208,9 +201,6 @@
 			children = (
 				DB91EAE324D90E0900ED5A3A /* Store.swift */,
 				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
-				DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */,
-				DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */,
-				DB57762C2550495700903C1D /* StateSource.swift */,
 				DB162513256BAD2A00C627AC /* Terminatable.swift */,
 				DB162528256CA5F700C627AC /* DefaultTerminatable.swift */,
 			);
@@ -392,12 +382,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				DB57762D2550495700903C1D /* StateSource.swift in Sources */,
 				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
-				DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */,
 				DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */,
 				DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */,
-				DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */,
 				DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,11 +402,10 @@
 			buildActionMask = 0;
 			files = (
 				DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */,
-				DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
 				DB16251C256BF4A100C627AC /* MockState.swift in Sources */,
-				DB5776322550626E00903C1D /* StateSourceSpec.swift in Sources */,
 				DB162524256BF4F700C627AC /* MockCommand.swift in Sources */,
+				DBFA3BC02771E62500220808 /* DefaultTerminatableSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +436,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UseCaseKit.xcodeproj/UseCaseKit_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
@@ -479,7 +465,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UseCaseKit.xcodeproj/UseCaseKit_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
@@ -568,7 +554,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UseCaseKit.xcodeproj/UseCaseKitTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
@@ -596,7 +582,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UseCaseKit.xcodeproj/UseCaseKitTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";

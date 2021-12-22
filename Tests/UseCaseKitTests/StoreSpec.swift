@@ -31,7 +31,7 @@ class StoreSpec: QuickSpec {
                 let timeout = self.expectation(description: "timeout")
                 var count = 1
 
-                let key = store.addSubscriber {
+                let terminatable = store.addSubscriber {
                     switch count {
                     case 1:
                         expect($0) == initialState
@@ -42,7 +42,7 @@ class StoreSpec: QuickSpec {
                     }
                     count += 1
                 }
-                store.removeSubscriber(of: key)
+                terminatable.terminate()
                 store.update { $0 = currentState }
                 expect(XCTWaiter.wait(for: [timeout], timeout: 1.0, enforceOrder: true)) == .timedOut
             }
