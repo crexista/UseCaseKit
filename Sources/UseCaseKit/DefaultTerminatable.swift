@@ -5,7 +5,10 @@
 import Foundation
 
 class DefaultTerminatable: Terminatable {
-    private let closure: () -> Void
+
+    private var closure: () -> Void
+
+    var isTerminated: Bool = false
 
     init(closure: @escaping () -> Void) {
         self.closure = closure
@@ -13,5 +16,7 @@ class DefaultTerminatable: Terminatable {
 
     func terminate() {
         closure()
+        isTerminated = true
+        closure = {}
     }
 }

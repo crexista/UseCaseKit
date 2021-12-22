@@ -29,10 +29,8 @@
 		DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162528256CA5F700C627AC /* DefaultTerminatable.swift */; };
 		DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE324D90E0900ED5A3A /* Store.swift */; };
 		DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE524D9213200ED5A3A /* StoreSpec.swift */; };
+		DBFA3BC02771E62500220808 /* DefaultTerminatableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */; };
 		DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */; };
-		DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */; };
-		DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */; };
-		DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */; };
 		DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_43 /* UseCaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UseCaseKit::UseCaseKit::Product" /* UseCaseKit.framework */; };
@@ -84,10 +82,8 @@
 		DB91EABC24D6DA6200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		DB91EAE324D90E0900ED5A3A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB91EAE524D9213200ED5A3A /* StoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSpec.swift; sourceTree = "<group>"; };
+		DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatableSpec.swift; sourceTree = "<group>"; };
 		DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
-		DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
-		DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherSpec.swift; sourceTree = "<group>"; };
-		DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Store.swift"; sourceTree = "<group>"; };
 		DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseSpec.swift; sourceTree = "<group>"; };
 		F4F5D95C7858B070556A2907 /* Pods_UseCaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UseCaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8582C8FD91F3937CC189A7D /* Pods-UseCaseKit-UseCaseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; path = "Target Support Files/Pods-UseCaseKit-UseCaseKitTests/Pods-UseCaseKit-UseCaseKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				DB91EAE524D9213200ED5A3A /* StoreSpec.swift */,
-				DBFD7F0A24E6C94B006A32A4 /* DispatcherSpec.swift */,
 				DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */,
+				DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */,
 				DB16251B256BF4A100C627AC /* MockState.swift */,
 				DB162523256BF4F700C627AC /* MockCommand.swift */,
 			);
@@ -205,8 +201,6 @@
 			children = (
 				DB91EAE324D90E0900ED5A3A /* Store.swift */,
 				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
-				DBFD7F0824E6C839006A32A4 /* Dispatcher.swift */,
-				DBFD7F0C24EA7FBD006A32A4 /* UseCase+Store.swift */,
 				DB162513256BAD2A00C627AC /* Terminatable.swift */,
 				DB162528256CA5F700C627AC /* DefaultTerminatable.swift */,
 			);
@@ -389,10 +383,8 @@
 			buildActionMask = 0;
 			files = (
 				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
-				DBFD7F0D24EA7FBD006A32A4 /* UseCase+Store.swift in Sources */,
 				DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */,
 				DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */,
-				DBFD7F0924E6C839006A32A4 /* Dispatcher.swift in Sources */,
 				DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,10 +402,10 @@
 			buildActionMask = 0;
 			files = (
 				DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */,
-				DBFD7F0B24E6C94B006A32A4 /* DispatcherSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
 				DB16251C256BF4A100C627AC /* MockState.swift in Sources */,
 				DB162524256BF4F700C627AC /* MockCommand.swift in Sources */,
+				DBFA3BC02771E62500220808 /* DefaultTerminatableSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

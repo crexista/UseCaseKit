@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stopWatchUseCase = .stopWatch()
-        stopWatchUseCase?.state.sink(on: .main) { [weak self] in
+        stopWatchUseCase?.sink(on: .main) { [weak self] in
                 switch $0 {
                 case let .counting(num):
                     self?.counterLabel.text = "\(num)"
@@ -42,10 +42,10 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func onTapStartButton(_ sender: Any) { stopWatchUseCase?.dispatcher.dispatch(.start) }
+    @IBAction func onTapStartButton(_ sender: Any) { stopWatchUseCase?.dispatch(.start) }
 
-    @IBAction func onTapResetButton(_ sender: Any) { stopWatchUseCase?.dispatcher.dispatch(.reset) }
+    @IBAction func onTapResetButton(_ sender: Any) { stopWatchUseCase?.dispatch(.reset) }
 
-    @IBAction func onTapStopButton(_ sender: Any) { stopWatchUseCase?.dispatcher.dispatch(.stop) }
+    @IBAction func onTapStopButton(_ sender: Any) { stopWatchUseCase?.dispatch(.stop) }
     
 }
