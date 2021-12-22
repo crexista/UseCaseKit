@@ -19,6 +19,10 @@ public class UseCase<CommandType: Command> {
         self.store = store
     }
 
+    var state: CommandType.State {
+        store.currentState
+    }
+
     @discardableResult
     public func sink(on queue: DispatchQueue, receiver: @escaping (CommandType.State) -> Void) -> Terminatable {
         let newReceiver: (CommandType.State) -> Void = { state in
@@ -79,5 +83,15 @@ public extension UseCase {
         let store = Store(state: state)
         let handler = interaction(store)
         self.init(handler: handler, store: store)
+    }
+}
+
+@available(iOS 13.0, *)
+extension UseCase {
+
+    /// Convert to StateObject from UseCase
+    /// - Returns: StateObject
+    func asStateObject() -> StateObject<CommandType> {
+        StateObject(usecase: self)
     }
 }
