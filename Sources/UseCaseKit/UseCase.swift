@@ -10,27 +10,57 @@ public protocol Command {
 
 public class UseCase<CommandType: Command> {
 
+    private typealias SubscribingKey = Int
+
+    public typealias Receiver = (CommandType.State) -> Void
+
+    private let queue: DispatchQueue = .init(label: "st.crexi.UseCaseKit.UseCase")
     private let store: Store<CommandType.State>
     private var terminatables: [Terminatable] = []
     private let handler: Handler
+    private var subscribers: [SubscribingKey: Receiver] = [:]
+    private var key: SubscribingKey = 0
 
     init(handler: Handler, store: Store<CommandType.State>) {
         self.handler = handler
         self.store = store
+        store.set { [weak self] in self?.publish($0) }
     }
 
     var state: CommandType.State {
         store.currentState
     }
 
+    var subscribersCount: Int {
+        queue.sync {
+            subscribers.values.count
+        }
+    }
+
     @discardableResult
-    public func sink(on queue: DispatchQueue, receiver: @escaping (CommandType.State) -> Void) -> Terminatable {
+    public func sink(on queue: DispatchQueue, receiver: @escaping Receiver) -> Terminatable {
         let newReceiver: (CommandType.State) -> Void = { state in
             queue.async { receiver(state) }
         }
-        let terminatable = store.addSubscriber(newReceiver)
-        terminatables.append(terminatable)
-        return terminatable
+        return sink(receiver: newReceiver)
+    }
+
+    func sink(receiver: @escaping (CommandType.State) -> Void) -> Terminatable {
+        queue.sync {
+            let newKey = key + 1
+            subscribers[newKey] = receiver
+            let terminable = DefaultTerminatable { [weak self] in self?.subscribers.removeValue(forKey: newKey) }
+            key = newKey
+            terminatables.append(terminable)
+            receiver(store.currentState)
+            return terminable
+        }
+    }
+
+    private func publish(_ state: CommandType.State) {
+        queue.sync { [weak self] in
+            self?.subscribers.values.forEach { $0(state) }
+        }
     }
 
     public func dispatch(_ command: CommandType) {
@@ -83,15 +113,5 @@ public extension UseCase {
         let store = Store(state: state)
         let handler = interaction(store)
         self.init(handler: handler, store: store)
-    }
-}
-
-@available(iOS 13.0, *)
-extension UseCase {
-
-    /// Convert to StateObject from UseCase
-    /// - Returns: StateObject
-    func asStateObject() -> StateObject<CommandType> {
-        StateObject(usecase: self)
     }
 }
