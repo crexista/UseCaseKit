@@ -10,96 +10,73 @@ class StoreSpec: QuickSpec {
 
     override func spec() {
         let initialState = "test1"
-        let currentState = "test2"
-        let nextState = "test3"
+        let newState = "test2"
         var store = Store(state: initialState)
+        var updatedState: String?
+
         describe("Store") {
 
-            beforeEach { store = Store(state: initialState) }
+            beforeEach {
+                updatedState = nil
+                store = Store(state: initialState)
+            }
 
             it("returns initial state via currentState property") {
                 expect(store.currentState) == initialState
             }
 
-            it("relays initial state to receiver") {
-                waitUntil { end in
-                    store.addSubscriber { expect($0) == initialState; end() }
+            context("after setting state listener") {
+                beforeEach { store.set { updatedState = $0 } }
+
+                it("updated state will not called") {
+                    expect(updatedState).to(beNil())
                 }
-            }
 
-            it("stop publish state to subscriber that is removed") {
-                let timeout = self.expectation(description: "timeout")
-                var count = 1
-
-                let terminatable = store.addSubscriber {
-                    switch count {
-                    case 1:
-                        expect($0) == initialState
-                    case 2:
-                        expect($0) != currentState
-                        timeout.fulfill()
-                    default: break
+                context("when state is updated") {
+                    beforeEach {
+                        store.update { $0 = newState }
                     }
-                    count += 1
-                }
-                terminatable.terminate()
-                store.update { $0 = currentState }
-                expect(XCTWaiter.wait(for: [timeout], timeout: 1.0, enforceOrder: true)) == .timedOut
-            }
 
-            context("update state permanently") {
-                beforeEach { store.update { $0 = currentState } }
+                    it("current state return new state") {
+                        expect(store.currentState) == newState
+                    }
 
-                it("retunes current state via currentState property") {
-                    expect(store.currentState) == currentState
-                }
-
-                it("relays current state ") {
-                    waitUntil { end in
-                        store.addSubscriber {
-                            expect($0) == currentState
-                            end()
-                        }
+                    it("new State is notified to listener") {
+                        expect(updatedState) == newState
                     }
                 }
-            }
 
-            context("update state transiently") {
-
-                it("returns initial state via currentState property") {
-                    store.update(transient: true) { $0 = currentState }
-                    expect(store.currentState) == initialState
-                }
-
-                it("recover to initial state after changing currentState") {
-                    let first = self.expectation(description: "first")
-                    let second = self.expectation(description: "second")
-                    let third = self.expectation(description: "third")
-                    var count = 1
-                    store.addSubscriber {
-                        switch count {
-                        case 1:
-                            expect($0) == initialState
-                            first.fulfill()
-                        case 2:
-                            expect($0) == currentState
-                            second.fulfill()
-                        case 3:
-                            expect($0) == initialState
-                            third.fulfill()
-                        default: break
-                        }
-                        count += 1
+                context("when state is updated as trancient") {
+                    beforeEach {
+                        store.update(transient: true) { $0 = newState }
                     }
-                    store.update(transient: true) { $0 = currentState }
-                    expect(XCTWaiter.wait(for: [first, second, third], timeout: 1.0, enforceOrder: true)) == .completed
-                }
 
-                it("recover to initial state after changing currentState2") {
+                    it("current state is not changed") {
+                        expect(store.currentState) == initialState
+                    }
 
+                    it("new State is notified to listener") {
+                        expect(updatedState) == newState
+                    }
                 }
 
             }
+
+            context("when state is updated") {
+                beforeEach {
+                    store.update { $0 = newState }
+                }
+
+                it("current state return new state") {
+                    expect(store.currentState) == newState
+                }
+
+                it("new State is not notified to listener") {
+                    expect(updatedState).to(beNil())
+                }
+
+            }
+
         }
     }
 }
