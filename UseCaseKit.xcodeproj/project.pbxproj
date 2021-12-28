@@ -28,12 +28,11 @@
 		DB162524256BF4F700C627AC /* MockCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162523256BF4F700C627AC /* MockCommand.swift */; };
 		DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB162528256CA5F700C627AC /* DefaultTerminatable.swift */; };
 		DB7A0D57277B059D0014B599 /* UseCase+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0D56277B059D0014B599 /* UseCase+Combine.swift */; };
-		DB7A0D59277B08050014B599 /* UseCase+StateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0D58277B08050014B599 /* UseCase+StateObject.swift */; };
+		DB7A0D59277B08050014B599 /* UseCase+ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0D58277B08050014B599 /* UseCase+ObservableObject.swift */; };
 		DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE324D90E0900ED5A3A /* Store.swift */; };
 		DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91EAE524D9213200ED5A3A /* StoreSpec.swift */; };
 		DBFA3BC02771E62500220808 /* DefaultTerminatableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */; };
-		DBFA3BC22772F99300220808 /* StateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BC12772F99300220808 /* StateObject.swift */; };
-		DBFA3BC52772FAE400220808 /* StateObjectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BC32772FAAA00220808 /* StateObjectSpec.swift */; };
+		DBFA3BC52772FAE400220808 /* ObservableUseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BC32772FAAA00220808 /* ObservableUseCaseSpec.swift */; };
 		DBFA3BC727731D3C00220808 /* UseCasePublisherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA3BC627731D3C00220808 /* UseCasePublisherSpec.swift */; };
 		DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */; };
 		DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */; };
@@ -82,7 +81,7 @@
 		DB162523256BF4F700C627AC /* MockCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommand.swift; sourceTree = "<group>"; };
 		DB162528256CA5F700C627AC /* DefaultTerminatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatable.swift; sourceTree = "<group>"; };
 		DB7A0D56277B059D0014B599 /* UseCase+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+Combine.swift"; sourceTree = "<group>"; };
-		DB7A0D58277B08050014B599 /* UseCase+StateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+StateObject.swift"; sourceTree = "<group>"; };
+		DB7A0D58277B08050014B599 /* UseCase+ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCase+ObservableObject.swift"; sourceTree = "<group>"; };
 		DB91EAB724D6DA4200ED5A3A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DB91EAB824D6DA4200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DB91EABB24D6DA6200ED5A3A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -90,8 +89,7 @@
 		DB91EAE324D90E0900ED5A3A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		DB91EAE524D9213200ED5A3A /* StoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSpec.swift; sourceTree = "<group>"; };
 		DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTerminatableSpec.swift; sourceTree = "<group>"; };
-		DBFA3BC12772F99300220808 /* StateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObject.swift; sourceTree = "<group>"; };
-		DBFA3BC32772FAAA00220808 /* StateObjectSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObjectSpec.swift; sourceTree = "<group>"; };
+		DBFA3BC32772FAAA00220808 /* ObservableUseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableUseCaseSpec.swift; sourceTree = "<group>"; };
 		DBFA3BC627731D3C00220808 /* UseCasePublisherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasePublisherSpec.swift; sourceTree = "<group>"; };
 		DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		DBFD7F0E24EA8C58006A32A4 /* UseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseSpec.swift; sourceTree = "<group>"; };
@@ -172,7 +170,7 @@
 				DBFA3BBF2771E62500220808 /* DefaultTerminatableSpec.swift */,
 				DB16251B256BF4A100C627AC /* MockState.swift */,
 				DB162523256BF4F700C627AC /* MockCommand.swift */,
-				DBFA3BC32772FAAA00220808 /* StateObjectSpec.swift */,
+				DBFA3BC32772FAAA00220808 /* ObservableUseCaseSpec.swift */,
 				DBFA3BC627731D3C00220808 /* UseCasePublisherSpec.swift */,
 			);
 			name = UseCaseKitTests;
@@ -215,9 +213,8 @@
 				DBFD7F0624E6C7D0006A32A4 /* UseCase.swift */,
 				DB162513256BAD2A00C627AC /* Terminatable.swift */,
 				DB162528256CA5F700C627AC /* DefaultTerminatable.swift */,
-				DBFA3BC12772F99300220808 /* StateObject.swift */,
 				DB7A0D56277B059D0014B599 /* UseCase+Combine.swift */,
-				DB7A0D58277B08050014B599 /* UseCase+StateObject.swift */,
+				DB7A0D58277B08050014B599 /* UseCase+ObservableObject.swift */,
 			);
 			name = UseCaseKit;
 			path = Sources/UseCaseKit;
@@ -399,9 +396,8 @@
 			files = (
 				DBFD7F0724E6C7D0006A32A4 /* UseCase.swift in Sources */,
 				DB162514256BAD2A00C627AC /* Terminatable.swift in Sources */,
-				DBFA3BC22772F99300220808 /* StateObject.swift in Sources */,
 				DB91EAE424D90E0900ED5A3A /* Store.swift in Sources */,
-				DB7A0D59277B08050014B599 /* UseCase+StateObject.swift in Sources */,
+				DB7A0D59277B08050014B599 /* UseCase+ObservableObject.swift in Sources */,
 				DB162529256CA5F700C627AC /* DefaultTerminatable.swift in Sources */,
 				DB7A0D57277B059D0014B599 /* UseCase+Combine.swift in Sources */,
 			);
@@ -422,7 +418,7 @@
 				DBFD7F0F24EA8C58006A32A4 /* UseCaseSpec.swift in Sources */,
 				DB91EAE624D9213200ED5A3A /* StoreSpec.swift in Sources */,
 				DB16251C256BF4A100C627AC /* MockState.swift in Sources */,
-				DBFA3BC52772FAE400220808 /* StateObjectSpec.swift in Sources */,
+				DBFA3BC52772FAE400220808 /* ObservableUseCaseSpec.swift in Sources */,
 				DBFA3BC727731D3C00220808 /* UseCasePublisherSpec.swift in Sources */,
 				DB162524256BF4F700C627AC /* MockCommand.swift in Sources */,
 				DBFA3BC02771E62500220808 /* DefaultTerminatableSpec.swift in Sources */,
