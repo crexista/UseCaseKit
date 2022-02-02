@@ -4,15 +4,20 @@
 
 import Foundation
 
+/// `Store` save a state, and notify that state when that state is updated.
+///
 public class Store<State: Equatable> {
 
-    typealias SubscriberKey = Int
+    private typealias Listener = (State) -> Void
 
     private let queue: DispatchQueue = .init(label: "st.crexi.UseCaseKit.Store")
     private var state: State
-    private var subscribers: [SubscriberKey: (State) -> Void] = [:]
-    private var currentKey: SubscriberKey = 0
+    private var listener: Listener?
 
+    /// This property returns current state that `Store` has.
+    ///
+    /// - Attention: This property is computed property and called in serial queue for thread-safe,
+    ///              So this property will be called in update closure, it causes crash.
     public var currentState: State {
         return queue.sync { state }
     }
@@ -27,40 +32,23 @@ public class Store<State: Equatable> {
     ///   - transient: A Boolean value that the update is transient either or not.
     ///   - updater: A closure that update state. This closure is thread safe.
     public func update(transient: Bool = false, updater: @escaping (inout State) -> Void) {
-        queue.async {
-            let originalState = self.state
-            var newState = self.state
+        queue.sync {
+            var newState = state
             updater(&newState)
-            if transient {
-                self.state = newState
-                self.subscribers.values.forEach { $0(newState) }
-                self.state = originalState
-                self.subscribers.values.forEach { $0(originalState) }
-            } else {
-                self.state = newState
-                self.subscribers.values.forEach { $0(newState) }
-            }
+            state = transient ? state : newState
+            listener?(newState)
         }
     }
 
-    @discardableResult
-    func addSubscriber(_ subscriber: @escaping (State) -> Void) -> Terminatable {
-        return queue.sync {
-            let key = currentKey
-            self.subscribers[key] = subscriber
-            queue.async { self.subscribers[key]?(self.state) }
-            currentKey += 1
-
-            return DefaultTerminatable { [weak self] in
-                self?.removeSubscriber(of: key)
-            }
+    func set(stateListener: @escaping (State) -> Void) {
+        queue.async { [weak self] in
+            self?.listener = stateListener
         }
     }
 
-    func removeSubscriber(of key: SubscriberKey) {
-        queue.async {
-            self.subscribers.removeValue(forKey: key)
+    func removeListener() {
+        queue.async { [weak self] in
+            self?.listener = nil
         }
     }
-
 }
