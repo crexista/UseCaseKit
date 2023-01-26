@@ -5,6 +5,7 @@
 @testable import UseCaseKit
 import Quick
 import Nimble
+import XCTest
 
 @available(iOS 13.0, *)
 class ObservableUseCaseSpec: QuickSpec {

@@ -1,0 +1,17 @@
+scheme("UseCaseKit")
+
+package_path(".")
+workspace(".")
+
+clean(true)
+code_coverage(true)
+result_bundle(true)
+xcargs("-skipPackagePluginValidation")
+
+for_platform :mac do
+  destination("platform=macOS")
+end
+
+for_platform :ios do
+  device("iPhone 14 Pro Max")
+end

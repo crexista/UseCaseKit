@@ -5,6 +5,7 @@
 @testable import UseCaseKit
 import Quick
 import Nimble
+import XCTest
 
 class StoreSpec: QuickSpec {
 
@@ -29,7 +30,7 @@ class StoreSpec: QuickSpec {
                 beforeEach { store.set { updatedState = $0 } }
 
                 it("updated state will not called") {
-                    expect(updatedState).to(beNil())
+                    expect(updatedState) == nil
                 }
 
                 context("when state is updated") {
@@ -72,7 +73,7 @@ class StoreSpec: QuickSpec {
                 }
 
                 it("new State is not notified to listener") {
-                    expect(updatedState).to(beNil())
+                    expect(updatedState) == nil
                 }
 
             }

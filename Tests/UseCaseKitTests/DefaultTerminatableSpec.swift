@@ -5,6 +5,7 @@
 @testable import UseCaseKit
 import Quick
 import Nimble
+import XCTest
 
 class DefualtTerminatableSpec: QuickSpec {
 

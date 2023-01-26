@@ -26,36 +26,28 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix:
-        ruby: ['2.6.1']
+        ruby: ['2.7.2']
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      - name: Bundle install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          path: .build
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
-            ${{ runner.os }}-pods-
-
-      - name: Pod Install
-        run: bundle exec pod install
+            ${{ runner.os }}-spm-
 
       - name: Run test
-        run: bundle exec fastlane test
+        run: make test USE_RBENV=false
 
       - name: Send converage
         uses: codecov/codecov-action@v1

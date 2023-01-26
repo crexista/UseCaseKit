@@ -6,6 +6,7 @@
 import Quick
 import Nimble
 import Combine
+import XCTest
 
 @available(iOS 13.0, *)
 class UseCasePublisherSpec: QuickSpec {
