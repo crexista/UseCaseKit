@@ -7,7 +7,6 @@ import Quick
 import Nimble
 import XCTest
 
-@available(iOS 13.0, *)
 class ObservableUseCaseSpec: QuickSpec {
 
     override func spec() {
@@ -28,19 +27,13 @@ class ObservableUseCaseSpec: QuickSpec {
                 }
 
                 it("`StateObject`'s state will change to mock1 after test1 command is dispatched to `UseCase`") {
-                    waitUntil { end in
-                        usecase.dispatch(.test1)
-                        _ = usecase.state
-                        DispatchQueue.main.async { expect(observableMock.state) == .mock1; end() }
-                    }
+                    usecase.dispatch(.test1)
+                    await expect(observableMock.state == .mock1).toEventually(beTrue())
                 }
 
                 it("`StateObject`'s state will change to mock2 after test2 command is dispatched to `UseCase`") {
-                    waitUntil { end in
-                        usecase.dispatch(.test2)
-                        _ = usecase.state
-                        DispatchQueue.main.async { expect(observableMock.state) == .mock2; end() }
-                    }
+                    usecase.dispatch(.test2)
+                    await expect(observableMock.state == .mock2).toEventually(beTrue())
                 }
 
             }
@@ -56,14 +49,14 @@ class ObservableUseCaseSpec: QuickSpec {
                 }
 
                 it("`UseCase` state will change to mock1 after test1 command is dispatched to `StateObject`") {
-                    waitUntil { end in
+                    await waitUntil { end in
                         usecase.sink(ignoreFirst: true) { expect($0) == .mock1; end() }
                         observableMock.dispatch(.test1)
                     }
                 }
 
                 it("`UseCase` state will change to mock2 after test2 command is dispatched to `StateObject`") {
-                    waitUntil { end in
+                    await waitUntil { end in
                         usecase.sink(ignoreFirst: true) { expect($0) == .mock2; end() }
                         observableMock.dispatch(.test2)
                     }

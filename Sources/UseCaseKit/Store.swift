@@ -32,16 +32,17 @@ public class Store<State: Equatable> {
     ///   - transient: A Boolean value that the update is transient either or not.
     ///   - updater: A closure that update state. This closure is thread safe.
     public func update(transient: Bool = false, updater: @escaping (inout State) -> Void) {
-        queue.sync {
-            var newState = state
+        queue.async { [weak self] in
+            guard let self = self else { return }
+            var newState = self.state
             updater(&newState)
-            state = transient ? state : newState
-            listener?(newState)
+            self.state = transient ? self.state : newState
+            self.listener?(newState)
         }
     }
 
     func set(stateListener: @escaping (State) -> Void) {
-        queue.async { [weak self] in
+        queue.sync { [weak self] in
             self?.listener = stateListener
         }
     }
