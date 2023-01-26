@@ -43,7 +43,7 @@ class StoreSpec: QuickSpec {
                     }
 
                     it("new State is notified to listener") {
-                        expect(updatedState) == newState
+                        await expect(updatedState == newState).toEventually(beTrue())
                     }
                 }
 
@@ -57,7 +57,7 @@ class StoreSpec: QuickSpec {
                     }
 
                     it("new State is notified to listener") {
-                        expect(updatedState) == newState
+                        await expect(updatedState == newState).toEventually(beTrue())
                     }
                 }
 

@@ -58,7 +58,7 @@ public class UseCase<CommandType: Command> {
     }
 
     private func publish(_ state: CommandType.State) {
-        queue.sync { [weak self] in
+        queue.async { [weak self] in
             self?.subscribers.values.forEach { $0(state) }
         }
     }

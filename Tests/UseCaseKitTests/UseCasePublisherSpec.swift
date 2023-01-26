@@ -47,19 +47,17 @@ class UseCasePublisherSpec: QuickSpec {
 
             describe("Dispatch Command Test") {
                 beforeEach {
-                    cancelable = publisher?.dropFirst().sink { expectedState = $0; sinkWaiter.fulfill() }
+                    cancelable = publisher?.dropFirst().sink { expectedState = $0 }
                 }
 
                 it("A state that is sent after test1 command is dispatched to `UseCase` is mock1") {
                     usecase?.dispatch(.test1)
-                    expect(expectedState) == .mock1
-                    expect(XCTWaiter.wait(for: [sinkWaiter], timeout: 1.0, enforceOrder: true)) == .completed
+                    await expect(expectedState == .mock1).toEventually(beTrue())
                 }
 
                 it("A state that is sent after test2 command is dispatched to `UseCase` is mock2") {
                     usecase?.dispatch(.test2)
-                    expect(expectedState) == .mock2
-                    expect(XCTWaiter.wait(for: [sinkWaiter], timeout: 1.0, enforceOrder: true)) == .completed
+                    await expect(expectedState == .mock2).toEventually(beTrue())
                 }
             }
 
