@@ -57,6 +57,26 @@ public class UseCase<CommandType: Command> {
         }
     }
 
+    func adapt<NewCommand: Command>(_ commandType: NewCommand.Type,
+                                    receptor: ((NewCommand) -> FilterResult<CommandType>)? = nil,
+                                    reducer: @escaping (CommandType.State) -> FilterResult<NewCommand.State>,
+                                    with initializer: @escaping (CommandType.State) -> NewCommand.State) -> UseCase<NewCommand> {
+
+        return .init(initializer(state)) { store in
+            let terminatable = self.sink {
+                guard case let .relay(state) = reducer($0) else { return }
+                store.update { $0 = state }
+            }
+
+            return .onReceive {
+                guard case let .relay(command) = receptor?($0) else { return }
+                self.dispatch(command)
+            } onDeinit: {
+                terminatable.terminate()
+            }
+        }
+    }
+
     private func publish(_ state: CommandType.State) {
         queue.async { [weak self] in
             self?.subscribers.values.forEach { $0(state) }
@@ -80,7 +100,7 @@ public extension UseCase {
         let commandReceiver: ((CommandType) -> Void)?
         let deinitListener: (() -> Void)?
 
-        private init(commandReceiver: ((CommandType) -> Void)?, deinitListener: (() -> Void)?) {
+        fileprivate init(commandReceiver: ((CommandType) -> Void)?, deinitListener: (() -> Void)?) {
             self.commandReceiver = commandReceiver
             self.deinitListener = deinitListener
         }
@@ -114,4 +134,42 @@ public extension UseCase {
         let handler = interaction(store)
         self.init(handler: handler, store: store)
     }
+}
+
+public extension UseCase {
+
+    enum FilterResult<T> {
+        case relay(T)
+        case discard
+    }
+
+    struct Adaptor<NewCommand: Command> {
+        let source: UseCase<CommandType>
+        let inputConverter: (NewCommand) -> FilterResult<CommandType>
+        let outputConverter: (CommandType.State) -> FilterResult<NewCommand.State>
+    }
+
+    func adapt<NewCommand: Command>(_ commandType: NewCommand.Type, converter: @escaping (NewCommand) -> FilterResult<CommandType>) -> Adaptor<NewCommand> {
+        Adaptor(source: self, inputConverter: converter, outputConverter: { _ in .discard })
+    }
+
+}
+
+extension UseCase.Adaptor {
+
+    func asUseCase(with initializer: @escaping (CommandType.State) -> NewCommand.State) -> UseCase<NewCommand> {
+        source.adapt(NewCommand.self,
+                     receptor: inputConverter,
+                     reducer: outputConverter,
+                     with: initializer)
+    }
+}
+
+public extension UseCase.Adaptor {
+
+    func converting(onStateUpdate converter: @escaping (CommandType.State) -> NewCommand.State) -> UseCase<NewCommand> {
+        let adaptor = UseCase.Adaptor<NewCommand>(source: source, inputConverter: inputConverter, outputConverter: { .relay(converter($0)) })
+        return adaptor.asUseCase(with: converter)
+    }
+
 }
