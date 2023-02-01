@@ -5,7 +5,6 @@
 import Foundation
 import Combine
 
-@available(iOS 13.0, *)
 public extension UseCase {
 
     class ObservableObject: Combine.ObservableObject {
@@ -32,10 +31,8 @@ public extension UseCase {
     }
 }
 
-@available(iOS 13.0, *)
 public typealias ObservableUseCase<CommandType: Command> = UseCase<CommandType>.ObservableObject
 
-@available(iOS 13.0, *)
 public extension ObservableUseCase {
 
     convenience init(_ state: CommandType.State, interaction: (Store<CommandType.State>) -> UseCase<CommandType>.Handler) {
