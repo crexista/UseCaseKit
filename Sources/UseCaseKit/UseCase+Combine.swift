@@ -5,7 +5,6 @@
 import Foundation
 import Combine
 
-@available(iOS 13.0, *)
 extension UseCase {
 
     class Subscription<S: Subscriber>: Combine.Subscription where S.Input == CommandType.State, S.Failure == Never {
@@ -49,7 +48,6 @@ extension UseCase {
 
 }
 
-@available(iOS 13.0, *)
 public extension UseCase {
 
     /// Make an AnyPublisher that is publishing `UseCase`'s state.
