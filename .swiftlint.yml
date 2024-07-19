@@ -6,7 +6,6 @@ excluded:
 analyzer_rules:
   - unused_import
 opt_in_rules:
-  - anyobject_protocol
   - attributes
   - closure_end_indentation
   - closure_spacing

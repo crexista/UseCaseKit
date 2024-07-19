@@ -15,7 +15,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/realm/SwiftLint.git", revision: "d98fd53"),
+        .package(url: "https://github.com/realm/SwiftLint.git", .upToNextMinor(from: "0.55.1")),
         .package(url: "https://github.com/Quick/Quick.git", from: "6.1.0"),
         .package(url: "https://github.com/Quick/Nimble.git", from: "11.2.1")
     ],
@@ -25,11 +25,11 @@ let package = Package(
         .target(
             name: "UseCaseKit",
             dependencies: [],
-            plugins: [.plugin(name: "SwiftLintPlugin", package: "SwiftLint")]),
+            plugins: [.plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLint")]),
         .testTarget(
             name: "UseCaseKitTests",
             dependencies: ["UseCaseKit", "Quick", "Nimble"],
-            plugins: [.plugin(name: "SwiftLintPlugin", package: "SwiftLint")])
+            plugins: [.plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLint")])
     ]
 )
     
