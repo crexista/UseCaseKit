@@ -67,29 +67,34 @@ Store 更新されると UseCase が持つ `state` も同時に更新されま�
 以下はストップウォッチの状態を、受け取った Command にしたがって Store を操作し更新するコードです。
 
 ```Swift
+extension UseCase {
     
-let stopWatch: UseCase<StopWatchCommand> = .init(.stopped) { store in
-     var timer: Timer?
+    static func stopWatch() -> UseCase<StopWatchCommand> {
+        return  .init(.stopped) { store in
+            var timer: Timer?
             
-     return {
-        switch $0 {
-        case .stop:
-            timer?.invalidate()
-            store.update { $0 = .pause($0.count) }
+            return .onReceive {
+                switch $0 {
+                case .stop:
+                    timer?.invalidate()
+                    store.update { $0 = .pause($0.count) }
 
-        case .start:
-            timer?.invalidate()
-            store.update { $0 = .counting($0.count) }
-            timer = .scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                store.update { $0 = .counting($0.count + 1) }
+                case .start:
+                    timer?.invalidate()
+                    store.update { $0 = .counting($0.count) }
+                    timer = .scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                        store.update { $0 = .counting($0.count + 1) }
+                    }
+
+                case .reset:
+                    guard case .pause = store.currentState else { return }
+                    timer?.invalidate()
+                    store.update { $0 = .stopped }
+                }
             }
-
-        case .reset:
-            guard case .pause = store.currentState else { return }
-            timer?.invalidate()
-            store.update { $0 = .stopped }
         }
     }
+
 }
 
 ```
@@ -111,10 +116,12 @@ class ViewController: UIViewController {
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var stopButton: UIButton!
     
+    private var stopWatchUseCase: UseCase<StopWatchCommand>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        stopWatch.state.sink(on: .main) { [weak self] in
+        stopWatchUseCase = .stopWatch()
+        stopWatchUseCase?.sink(on: .main) { [weak self] in
                 switch $0 {
                 case let .counting(num):
                     self?.counterLabel.text = "\(num)"
@@ -135,11 +142,12 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func onTapStartButton(_ sender: Any) { stopWatch.dispatcher.dispatch(.start) }
+    @IBAction func onTapStartButton(_ sender: Any) { stopWatchUseCase?.dispatch(.start) }
 
-    @IBAction func onTapResetButton(_ sender: Any) { stopWatch.dispatcher.dispatch(.reset) }
+    @IBAction func onTapResetButton(_ sender: Any) { stopWatchUseCase?.dispatch(.reset) }
 
-    @IBAction func onTapStopButton(_ sender: Any) { stopWatch.dispatcher.dispatch(.stop) }
+    @IBAction func onTapStopButton(_ sender: Any) { stopWatchUseCase?.dispatch(.stop) }
+    
 }
 ```
 
